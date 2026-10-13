@@ -312,8 +312,12 @@ export const register: Register = (on, options) => {
     if (arg === 'debate' || arg === 'meeting') {
       const topic = rest.join(' ').trim()
       if (!topic) return { text: 'Usage: /office debate <topic>' }
-      await $.prompt.submit({
-        text: `Hold an office meeting (debate) on: ${topic}\nPick the 3-5 staff whose roles and personalities give the most useful disagreement, run two rounds, then decide.`,
+      // A command.run hook can't submit a prompt (it would wait on itself), so
+      // queue it from a timer once the command has answered.
+      $.clock.after(50, () => {
+        void $.prompt.submit({
+          text: `Hold an office meeting (debate) on: ${topic}\nPick the 3-5 staff whose roles and personalities give the most useful disagreement, run two rounds, then decide.`,
+        })
       })
       return { text: `Meeting called: ${topic}` }
     }

@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.1 — 2026-10-13
+
+- Fixed `/office debate <topic>`: it failed with "no command.run hook answered it" because it submitted the meeting prompt from inside the command handler. The prompt is now queued just after the command answers.
+- Added a test that runs every `/office` subcommand.
+
 ## 1.1.0 — 2026-10-13
 
 - Renamed from Shane Digital Studio to **Clawffice**. The plugin, marketplace and subagent types are now `clawffice` (`clawffice:developer`, …), and the default studio name is "Clawffice".

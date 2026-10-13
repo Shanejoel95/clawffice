@@ -1,6 +1,6 @@
 {
   "name": "clawffice",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A virtual software agency inside Claude Code: an Office Manager routes every task to named specialist agents (pixel crabs), tracks tickets, runs debates, and logs real time, tokens and cost per job.",
   "author": { "name": "Shane", "url": "https://github.com/Shanejoel95" },
   "homepage": "https://github.com/Shanejoel95/clawffice",

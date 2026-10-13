@@ -120,3 +120,41 @@ test('without sequential agents the call is passed through unchanged', { options
   await $.tool.call({ tool: 'Agent', tool_use_id: 't9', description: 'Write docs', prompt: 'go', subagent_type: 'clawffice:support', run_in_background: true } as never)
   expect(background).toBe(true)
 })
+
+// Every /office subcommand answers; the engine's ops beneath are stubbed.
+test('every /office command answers', async ($, on) => {
+  let panes: { id: string }[] = []
+  const submitted: string[] = []
+  mock.store(on, {})
+  const clock = mock.clock(on, { now: Date.UTC(2026, 9, 13, 9, 0) })
+  on('ui.status', () => ({ value: undefined }) as never)
+  on('ui.panes', () => ({ value: panes }) as never)
+  on('ui.open', (_$, e) => {
+    panes = [...panes, { id: (e as { id: string }).id }]
+    return { value: { isPlaced: true } } as never
+  })
+  on('ui.close', (_$, e) => {
+    panes = panes.filter(p => p.id !== (e as { id: string }).id)
+    return { value: undefined } as never
+  })
+  on('fs.exists', () => ({ value: false }) as never)
+  on('fs.write', () => ({ value: undefined }) as never)
+  on('prompt.submit', (_$, e) => {
+    submitted.push((e as { text: string }).text)
+    return { text: (e as { text: string }).text } as never
+  })
+
+  const run = async (args: string) => String((await $.command.run({ command: 'office', args } as never) as { text?: string }).text ?? '')
+
+  expect(await run('')).toBe('Office floor opened.')
+  expect(await run('floor')).toBe('Office floor closed.')
+  expect(await run('staff')).toBe('Staff editor opened.')
+  expect(await run('roster')).toContain('Clawffice — roster')
+  expect(await run('timesheet')).toBe('No office jobs logged yet.')
+  expect(await run('off')).toContain('is closed')
+  expect(await run('on')).toContain('is open')
+  expect(await run('debate')).toBe('Usage: /office debate <topic>')
+  expect(await run('debate Should we ship a free tier?')).toBe('Meeting called: Should we ship a free tier?')
+  await clock.advance(100)
+  expect(submitted[0]).toContain('Hold an office meeting (debate) on: Should we ship a free tier?')
+})
