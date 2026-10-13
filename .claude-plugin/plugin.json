@@ -1,0 +1,38 @@
+{
+  "name": "shane-digital-studio",
+  "version": "1.0.0",
+  "description": "A virtual software agency inside Claude Code: an Office Manager routes every task to named specialist agents (pixel crabs), tracks tickets, runs debates, and logs real time, tokens and cost per job.",
+  "author": { "name": "Shane", "url": "https://github.com/Shanejoel95" },
+  "homepage": "https://github.com/Shanejoel95/shane-digital-studio",
+  "repository": "https://github.com/Shanejoel95/shane-digital-studio",
+  "license": "MIT",
+  "keywords": ["agents", "subagents", "office", "tickets", "cost-tracking", "orchestration"],
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "studioName": {
+      "type": "string",
+      "title": "Studio name",
+      "description": "Shown in the panel, band, prompts and office log",
+      "default": "Shane Digital Studio"
+    },
+    "band": {
+      "type": "string",
+      "title": "Band above the prompt",
+      "description": "full: crabs and the live headline; compact: headline only; off: hidden",
+      "default": "full",
+      "options": ["full", "compact", "off"]
+    },
+    "autoOpenFloor": {
+      "type": "boolean",
+      "title": "Open the office floor automatically",
+      "description": "Open the floor panel when a specialist starts work or a meeting is called",
+      "default": true
+    },
+    "sequentialAgents": {
+      "type": "boolean",
+      "title": "Run specialists one at a time",
+      "description": "Keep office agents in the foreground so handoffs happen in order and timesheets are exact",
+      "default": true
+    }
+  }
+}

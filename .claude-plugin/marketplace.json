@@ -1,0 +1,15 @@
+{
+  "name": "shane-digital-studio",
+  "description": "Shane Digital Studio: a virtual software agency for Claude Code.",
+  "owner": {
+    "name": "Shane",
+    "url": "https://github.com/Shanejoel95"
+  },
+  "plugins": [
+    {
+      "name": "shane-digital-studio",
+      "source": "./",
+      "description": "A virtual software agency inside Claude Code: named specialist agents, tickets, debates and live cost tracking."
+    }
+  ]
+}

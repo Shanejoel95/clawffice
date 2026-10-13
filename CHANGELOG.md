@@ -1,0 +1,13 @@
+# Changelog
+
+## 1.0.0 — 2026-10-13
+
+First public release.
+
+- Office Manager prompt: every task becomes a ticket in `.office/tickets/`, is routed to a named specialist, and is reported with model, time, tokens and cost.
+- Nine specialist agents (Product, Architect, Developer, QA, DevOps, Security, UX, Data, Support), registered from editable staff settings.
+- Live timesheet: real duration, tokens and an approximate cost for every specialist job, in `.office/timesheet.md` and `.office/log.md`.
+- Office floor panel: pixel crabs for every staff member, a live headline, desk details, and a meeting room for debates.
+- Band above the prompt with the team and the current headline.
+- `/office` command: floor, staff editor, debate, roster, timesheet, on/off.
+- Settings: studio name, band style, auto-open floor, sequential specialists.
