@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.0 — 2026-10-13
+
+- Renamed from Shane Digital Studio to **Clawffice**. The plugin, marketplace and subagent types are now `clawffice` (`clawffice:developer`, …), and the default studio name is "Clawffice".
+- Upgrading from `shane-digital-studio`: uninstall it, then install `clawffice`. Staff edits made under the old name don't carry over; re-apply them with `/office staff`.
+
 ## 1.0.0 — 2026-10-13
 
 First public release.

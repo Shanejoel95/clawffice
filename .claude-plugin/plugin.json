@@ -1,10 +1,10 @@
 {
-  "name": "shane-digital-studio",
-  "version": "1.0.0",
+  "name": "clawffice",
+  "version": "1.1.0",
   "description": "A virtual software agency inside Claude Code: an Office Manager routes every task to named specialist agents (pixel crabs), tracks tickets, runs debates, and logs real time, tokens and cost per job.",
   "author": { "name": "Shane", "url": "https://github.com/Shanejoel95" },
-  "homepage": "https://github.com/Shanejoel95/shane-digital-studio",
-  "repository": "https://github.com/Shanejoel95/shane-digital-studio",
+  "homepage": "https://github.com/Shanejoel95/clawffice",
+  "repository": "https://github.com/Shanejoel95/clawffice",
   "license": "MIT",
   "keywords": ["agents", "subagents", "office", "tickets", "cost-tracking", "orchestration"],
   "types": "./types/index.d.ts",
@@ -13,7 +13,7 @@
       "type": "string",
       "title": "Studio name",
       "description": "Shown in the panel, band, prompts and office log",
-      "default": "Shane Digital Studio"
+      "default": "Clawffice"
     },
     "band": {
       "type": "string",

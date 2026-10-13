@@ -107,7 +107,7 @@ export const memberFor = (staff: Member[], subagentType: string) =>
 
 export const DEBATE_PREFIX = /^(debate|meeting)\b/i
 
-export const agentPrompt = (m: Member, staff: Member[], studio = 'Shane Digital Studio') => {
+export const agentPrompt = (m: Member, staff: Member[], studio = 'Clawffice') => {
   const me = label(m)
   const team = staff.map(label).join(', ')
   return `You are ${me} — ${m.title} at ${studio}, a virtual software agency. You report to ${label(staff[0] as Member)}, the Office Manager, who assigned you this ticket.

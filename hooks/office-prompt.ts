@@ -13,7 +13,7 @@ export const rosterTable = (plugin: string, staff: Member[]) =>
     ),
   ].join('\n')
 
-export const officePrompt = (plugin: string, staff: Member[], studio = 'Shane Digital Studio') => {
+export const officePrompt = (plugin: string, staff: Member[], studio = 'Clawffice') => {
   const me = staff[0] as Member
   const by = (slug: string) => label(staff.find(m => m.slug === slug) ?? me)
   const MEETING = `mcp__${plugin}__meeting`

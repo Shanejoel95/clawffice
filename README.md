@@ -1,4 +1,6 @@
-# Shane Digital Studio
+# Clawffice
+
+**Your crab-run software agency, inside Claude Code.**
 
 A virtual software agency inside Claude Code. Your session becomes **Shane(Manager)**, an Office Manager who turns every request into a ticket, hands it to the right specialist, and reports back with the model used, time taken, tokens and an approximate cost.
 
@@ -29,16 +31,16 @@ The team shows up as pixel crabs: on a band above the prompt and on an office fl
 At the prompt of a Claude Code terminal session, run:
 
 ```
-/plugin install shane-digital-studio --marketplace Shanejoel95/shane-digital-studio
+/plugin install clawffice --marketplace Shanejoel95/clawffice
 ```
 
 Then:
 
-1. Answer `y` to **Add marketplace?** (`github:Shanejoel95/shane-digital-studio`).
+1. Answer `y` to **Add marketplace?** (`github:Shanejoel95/clawffice`).
 2. Pick a scope. **User** makes it available in every session and project; **Project** limits it to the current one.
 3. Set the options on the settings screen, or press Enter to keep the defaults (you can change them later).
 
-You'll see `Installed shane-digital-studio. Plugin is now active.` The mod runs in that session straight away.
+You'll see `Installed clawffice. Plugin is now active.` The mod runs in that session straight away.
 
 ### 2. Check it works
 
@@ -51,7 +53,7 @@ The first time a specialist works in a project, the mod creates `.office/log.md`
 ### Update
 
 ```
-claude plugin update shane-digital-studio
+claude plugin update clawffice
 ```
 
 Then run `/reload-plugins` in an open session, or start a new one.
@@ -59,15 +61,15 @@ Then run `/reload-plugins` in an open session, or start a new one.
 ### Turn it off or remove it
 
 - `/office off` switches the office persona off and hides the band; `/office on` brings it back. The setting is remembered.
-- To remove it completely: `claude plugin uninstall shane-digital-studio`.
+- To remove it completely: `claude plugin uninstall clawffice`.
 
 ### Install from a local copy
 
 To try changes before publishing, run Claude Code with the folder loaded:
 
 ```
-git clone https://github.com/Shanejoel95/shane-digital-studio.git
-claude --plugin-dir ./shane-digital-studio
+git clone https://github.com/Shanejoel95/clawffice.git
+claude --plugin-dir ./clawffice
 ```
 
 ## Features
@@ -136,7 +138,7 @@ The band shows the whole team, with working crabs walking, and the current headl
 | Liam(Data) | Data & Optimization Analyst | opus | Numbers or it didn't happen |
 | Zoe(Support) | Technical Writer / Support Lead | haiku | Counts the support tickets a decision creates |
 
-Each specialist is a subagent type (`shane-digital-studio:developer`, `shane-digital-studio:qa`, …) with its own tools and remit.
+Each specialist is a subagent type (`clawffice:developer`, `clawffice:qa`, …) with its own tools and remit.
 
 ## Commands
 
@@ -154,12 +156,12 @@ Each specialist is a subagent type (`shane-digital-studio:developer`, `shane-dig
 Set them in `/config`, or in `~/.claude/settings.json` under `pluginConfigs`:
 
 ```json
-{ "pluginConfigs": { "shane-digital-studio": { "options": { "studioName": "Acme Labs", "band": "compact" } } } }
+{ "pluginConfigs": { "clawffice": { "options": { "studioName": "Acme Labs", "band": "compact" } } } }
 ```
 
 | Option | Default | Meaning |
 |---|---|---|
-| `studioName` | `Shane Digital Studio` | Name used in the panel, band, prompts and log |
+| `studioName` | `Clawffice` | Name used in the panel, band, prompts and log |
 | `band` | `full` | `full` (crabs and headline), `compact` (headline only), `off` |
 | `autoOpenFloor` | `true` | Open the floor when a specialist starts or a meeting is called |
 | `sequentialAgents` | `true` | Run specialists one at a time so handoffs are ordered and timesheets exact |

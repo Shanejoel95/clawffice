@@ -26,17 +26,17 @@ import {
 import { officePrompt, rosterTable } from './office-prompt'
 import { DEBATE_PREFIX, DEFAULT_STAFF, MODELS, agentDescription, agentPrompt, label, memberFor, resolveStaff } from './staff'
 
-const desks = atom({ plugin: 'shane-digital-studio', key: 'desks' } as const, {} as Record<string, Desk>)
-const jobs = atom({ plugin: 'shane-digital-studio', key: 'jobs' } as const, [] as Job[])
-const isOpen = atom({ plugin: 'shane-digital-studio', key: 'isOpen' } as const, true)
-const now = atom({ plugin: 'shane-digital-studio', key: 'now' } as const, 0)
-const autoOpened = atom({ plugin: 'shane-digital-studio', key: 'autoOpened' } as const, false)
-const staffAtom = atom({ plugin: 'shane-digital-studio', key: 'staff' } as const, resolveStaff({}))
-const headline = atom({ plugin: 'shane-digital-studio', key: 'headline' } as const, null as Headline | null)
-const meeting = atom({ plugin: 'shane-digital-studio', key: 'meeting' } as const, null as Meeting | null)
-const editing = atom({ plugin: 'shane-digital-studio', key: 'editing' } as const, 'manager')
-const showDetails = atom({ plugin: 'shane-digital-studio', key: 'showDetails' } as const, false)
-const showMeeting = atom({ plugin: 'shane-digital-studio', key: 'showMeeting' } as const, false)
+const desks = atom({ plugin: 'clawffice', key: 'desks' } as const, {} as Record<string, Desk>)
+const jobs = atom({ plugin: 'clawffice', key: 'jobs' } as const, [] as Job[])
+const isOpen = atom({ plugin: 'clawffice', key: 'isOpen' } as const, true)
+const now = atom({ plugin: 'clawffice', key: 'now' } as const, 0)
+const autoOpened = atom({ plugin: 'clawffice', key: 'autoOpened' } as const, false)
+const staffAtom = atom({ plugin: 'clawffice', key: 'staff' } as const, resolveStaff({}))
+const headline = atom({ plugin: 'clawffice', key: 'headline' } as const, null as Headline | null)
+const meeting = atom({ plugin: 'clawffice', key: 'meeting' } as const, null as Meeting | null)
+const editing = atom({ plugin: 'clawffice', key: 'editing' } as const, 'manager')
+const showDetails = atom({ plugin: 'clawffice', key: 'showDetails' } as const, false)
+const showMeeting = atom({ plugin: 'clawffice', key: 'showMeeting' } as const, false)
 
 const DEPARTMENTS = [
   { title: 'Leadership', slugs: ['manager'] },
@@ -46,7 +46,7 @@ const DEPARTMENTS = [
   { title: 'Customers', slugs: ['support'] },
 ] as const
 
-const DEFAULT_STUDIO = 'Shane Digital Studio'
+const DEFAULT_STUDIO = 'Clawffice'
 // The studio's display name, from the plugin's options; set when the module registers.
 let STUDIO = DEFAULT_STUDIO
 
@@ -55,8 +55,8 @@ const EDITOR = 'office-staff'
 const LOG = '.office/log.md'
 const TIMESHEET = '.office/timesheet.md'
 const RATES = '.office/rates.json'
-const MEETING_TOOL = /^mcp__shane-digital-studio__meeting$/
-const STAFF_TOOL = /^mcp__shane-digital-studio__staff$/
+const MEETING_TOOL = /^mcp__clawffice__meeting$/
+const STAFF_TOOL = /^mcp__clawffice__staff$/
 
 // USD per million tokens, [input, output]. Approximate; override in .office/rates.json.
 const DEFAULT_RATES: Record<string, [number, number]> = {

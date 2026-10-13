@@ -48,7 +48,7 @@ export type Meeting = {
 
 declare module 'claude-code' {
   interface PluginState {
-    'shane-digital-studio': {
+    'clawffice': {
       desks: Record<string, Desk>
       jobs: Job[]
       isOpen: boolean
